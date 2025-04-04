@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula Library - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Calco</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+            <a href="unit-converter.html">Unit Converter</a>
+            <a href="formula-library.html" class="active">Formula Library</a>
+            <a href="login.html">Sign In</a>
+            <a href="signup.html" class="cta-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="formula-page">
+        <h1>Formula Library</h1>
+        <div class="formula-library">
+            <select id="formula-category" class="formula-select">
+                <option value="geometry">Geometry</option>
+                <option value="physics">Physics</option>
+                <option value="finance">Finance</option>
+                <option value="statistics">Statistics</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="calculus">Calculus</option>
+            </select>
+            <div id="formula-container" class="formula-container">
+                <!-- Formulas will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="formula-library.js"></script>
+
+    <!-- Add Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/database-operations.js"></script>
+
+    <script>
+        // Add favorite functionality to formula items
+        document.addEventListener('DOMContentLoaded', function() {
+            // Apply user settings
+            applyUserSettings();
+            
+            // Add event listener for favorite buttons
+            document.addEventListener('click', function(event) {
+                if (event.target.classList.contains('favorite-formula-btn') || 
+                    event.target.closest('.favorite-formula-btn')) {
+                    
+                    const button = event.target.classList.contains('favorite-formula-btn') ? 
+                        event.target : event.target.closest('.favorite-formula-btn');
+                    
+                    const formulaItem = button.closest('.formula-item');
+                    const category = document.getElementById('formula-category').value;
+                    const name = formulaItem.querySelector('.formula-name').textContent;
+                    const formula = formulaItem.querySelector('.formula-expression').textContent;
+                    
+                    // Save to favorites
+                    saveFormulaToFavorites(category, name, formula);
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

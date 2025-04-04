@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Calco</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+            <a href="unit-converter.html" class="active">Unit Converter</a>
+            <a href="formula-library.html">Formula Library</a>
+            <a href="health-calculator.html">Health Calculators</a>
+            <a href="conversion-calculator.html">Conversion Calculator</a>
+            <a href="login.html">Sign In</a>
+            <a href="signup.html" class="cta-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="converter-page">
+        <h1>Unit Converter</h1>
+        <div class="converter">
+            <select id="conversion-category" class="converter-select">
+                <option value="length">Length</option>
+                <option value="area">Area</option>
+                <option value="volume">Volume</option>
+                <option value="mass">Mass</option>
+                <option value="speed">Speed</option>
+                <option value="temperature">Temperature</option>
+                <option value="time">Time</option>
+                <option value="digital">Digital Storage</option>
+            </select>
+            <div class="converter-inputs">
+                <div class="input-group">
+                    <input type="number" id="from-value" placeholder="Enter value">
+                    <select id="from-unit"></select>
+                </div>
+                <button id="swap-units" class="swap-btn">
+                    <i class="fas fa-exchange-alt"></i>
+                </button>
+                <div class="input-group">
+                    <input type="number" id="to-value" readonly>
+                    <select id="to-unit"></select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="conversion-calculator.js"></script>
+    <script>
+        // Initialize the converter when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeConversion();
+        });
+    </script>
+</body>
+</html> 

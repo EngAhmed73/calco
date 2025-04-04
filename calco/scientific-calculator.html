@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Calco</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="scientific-calculator.html" class="active">Scientific Calculator</a>
+            <a href="unit-converter.html">Unit Converter</a>
+            <a href="formula-library.html">Formula Library</a>
+            <a href="login.html">Sign In</a>
+            <a href="signup.html" class="cta-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="calculator-page">
+        <h1>Scientific Calculator</h1>
+        <div class="calculator scientific">
+            <div class="calculator-display">
+                <input type="text" id="scientific-display" class="calc-display" readonly>
+            </div>
+            <div class="calc-buttons scientific-buttons">
+                <button class="func-btn" onclick="scientificCalc('sin')">sin</button>
+                <button class="func-btn" onclick="scientificCalc('cos')">cos</button>
+                <button class="func-btn" onclick="scientificCalc('tan')">tan</button>
+                <button class="func-btn" onclick="scientificCalc('π')">π</button>
+                <button class="func-btn" onclick="scientificCalc('log')">log</button>
+                <button class="func-btn" onclick="scientificCalc('ln')">ln</button>
+                <button class="func-btn" onclick="scientificCalc('√')">√</button>
+                <button class="func-btn" onclick="scientificCalc('^')">^</button>
+                <button onclick="scientificCalc('7')">7</button>
+                <button onclick="scientificCalc('8')">8</button>
+                <button onclick="scientificCalc('9')">9</button>
+                <button class="op-btn" onclick="scientificCalc('/')">/</button>
+                <button onclick="scientificCalc('4')">4</button>
+                <button onclick="scientificCalc('5')">5</button>
+                <button onclick="scientificCalc('6')">6</button>
+                <button class="op-btn" onclick="scientificCalc('*')">×</button>
+                <button onclick="scientificCalc('1')">1</button>
+                <button onclick="scientificCalc('2')">2</button>
+                <button onclick="scientificCalc('3')">3</button>
+                <button class="op-btn" onclick="scientificCalc('-')">-</button>
+                <button onclick="scientificCalc('0')">0</button>
+                <button onclick="scientificCalc('.')">.</button>
+                <button class="equals-btn" onclick="calculateScientific()">=</button>
+                <button class="op-btn" onclick="scientificCalc('+')">+</button>
+                <button class="clear-btn" onclick="clearScientific()">C</button>
+                <button onclick="scientificCalc('(')">(</button>
+                <button onclick="scientificCalc(')')">)</button>
+                <button onclick="backspaceScientific()">⌫</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scientific-calculator.js"></script>
+
+    <!-- Add Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/database-operations.js"></script>
+
+    <script>
+        // ... existing code ...
+        
+        // Add history saving functionality
+        function updateResult(result) {
+            // Update display with result
+            display.value = result;
+            
+            // Save calculation to history if logged in
+            const calculation = display.value;
+            saveCalculationToHistory(calculation, result)
+                .then(success => {
+                    if (success) {
+                        console.log('Calculation saved to history');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error saving calculation:', error);
+                });
+        }
+        
+        // Check for URL parameters that might contain a calculation to restore
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const calc = urlParams.get('calc');
+            
+            // If there's a calculation in the URL, set it in the display
+            if (calc) {
+                document.getElementById('display').value = calc;
+            }
+            
+            // Apply user settings
+            applyUserSettings().then(settings => {
+                // Set calculator precision based on user settings
+                window.calculatorPrecision = settings.decimalPlaces;
+                
+                // Set angle mode based on user settings
+                if (settings.angleUnit === 'radians') {
+                    document.getElementById('rad').checked = true;
+                } else {
+                    document.getElementById('deg').checked = true;
+                }
+            });
+        });
+        // ... existing code ...
+    </script>
+</body>
+</html> 

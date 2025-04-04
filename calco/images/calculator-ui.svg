@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="500" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background with gradient -->
+    <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#1a1b2e;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#2d3748;stop-opacity:1" />
+        </linearGradient>
+        <linearGradient id="displayGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" style="stop-color:#4ADE80;stop-opacity:0.2" />
+            <stop offset="100%" style="stop-color:#2DD4BF;stop-opacity:0.2" />
+        </linearGradient>
+    </defs>
+
+    <!-- Calculator Body -->
+    <rect width="400" height="500" rx="30" fill="url(#bgGradient)" filter="drop-shadow(0 10px 30px rgba(0,0,0,0.3))" />
+
+    <!-- Display Section -->
+    <rect x="25" y="25" width="350" height="120" rx="15" fill="#151623" />
+    <rect x="25" y="25" width="350" height="120" rx="15" fill="url(#displayGradient)" />
+    
+    <!-- Display Content -->
+    <text x="355" y="95" fill="#4ADE80" font-family="Arial" font-size="40" text-anchor="end" font-weight="bold">1,234.56</text>
+    <text x="355" y="65" fill="#4ADE80" opacity="0.5" font-family="Arial" font-size="20" text-anchor="end">789 × 1.5649</text>
+
+    <!-- Button Grid -->
+    <g transform="translate(25, 170)">
+        <!-- Function Buttons Row -->
+        <rect x="0" y="0" width="80" height="50" rx="10" fill="#FF6B6B" opacity="0.9" />
+        <text x="40" y="32" fill="white" font-family="Arial" font-size="20" text-anchor="middle">AC</text>
+
+        <rect x="90" y="0" width="80" height="50" rx="10" fill="#4A5568" />
+        <text x="130" y="32" fill="white" font-family="Arial" font-size="20" text-anchor="middle">±</text>
+
+        <rect x="180" y="0" width="80" height="50" rx="10" fill="#4A5568" />
+        <text x="220" y="32" fill="white" font-family="Arial" font-size="20" text-anchor="middle">%</text>
+
+        <rect x="270" y="0" width="80" height="50" rx="10" fill="#4ADE80" />
+        <text x="310" y="32" fill="white" font-family="Arial" font-size="20" text-anchor="middle">÷</text>
+
+        <!-- Number Grid -->
+        <g id="numberGrid">
+            <!-- Row 1 -->
+            <rect x="0" y="60" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="40" y="92" fill="white" font-family="Arial" font-size="20" text-anchor="middle">7</text>
+
+            <rect x="90" y="60" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="130" y="92" fill="white" font-family="Arial" font-size="20" text-anchor="middle">8</text>
+
+            <rect x="180" y="60" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="220" y="92" fill="white" font-family="Arial" font-size="20" text-anchor="middle">9</text>
+
+            <rect x="270" y="60" width="80" height="50" rx="10" fill="#4ADE80" />
+            <text x="310" y="92" fill="white" font-family="Arial" font-size="20" text-anchor="middle">×</text>
+
+            <!-- Row 2 -->
+            <rect x="0" y="120" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="40" y="152" fill="white" font-family="Arial" font-size="20" text-anchor="middle">4</text>
+
+            <rect x="90" y="120" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="130" y="152" fill="white" font-family="Arial" font-size="20" text-anchor="middle">5</text>
+
+            <rect x="180" y="120" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="220" y="152" fill="white" font-family="Arial" font-size="20" text-anchor="middle">6</text>
+
+            <rect x="270" y="120" width="80" height="50" rx="10" fill="#4ADE80" />
+            <text x="310" y="152" fill="white" font-family="Arial" font-size="20" text-anchor="middle">-</text>
+
+            <!-- Row 3 -->
+            <rect x="0" y="180" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="40" y="212" fill="white" font-family="Arial" font-size="20" text-anchor="middle">1</text>
+
+            <rect x="90" y="180" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="130" y="212" fill="white" font-family="Arial" font-size="20" text-anchor="middle">2</text>
+
+            <rect x="180" y="180" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="220" y="212" fill="white" font-family="Arial" font-size="20" text-anchor="middle">3</text>
+
+            <rect x="270" y="180" width="80" height="50" rx="10" fill="#4ADE80" />
+            <text x="310" y="212" fill="white" font-family="Arial" font-size="20" text-anchor="middle">+</text>
+
+            <!-- Row 4 -->
+            <rect x="0" y="240" width="170" height="50" rx="10" fill="#2D3748" />
+            <text x="85" y="272" fill="white" font-family="Arial" font-size="20" text-anchor="middle">0</text>
+
+            <rect x="180" y="240" width="80" height="50" rx="10" fill="#2D3748" />
+            <text x="220" y="272" fill="white" font-family="Arial" font-size="20" text-anchor="middle">.</text>
+
+            <rect x="270" y="240" width="80" height="50" rx="10" fill="#4ADE80" />
+            <text x="310" y="272" fill="white" font-family="Arial" font-size="20" text-anchor="middle">=</text>
+        </g>
+    </g>
+
+    <!-- Gloss Effect -->
+    <rect x="25" y="25" width="350" height="120" rx="15" fill="white" opacity="0.05" />
+</svg> 

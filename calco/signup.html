@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="auth.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Loading spinner styles */
+        .loading-spinner {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin-right: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 0.8s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .auth-button:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <!-- Add illustration container -->
+        <div class="auth-illustration">
+            <img src="images/calculator-ui.svg" 
+                 alt="Calculator Illustration" 
+                 class="signup-illustration"
+                 loading="lazy">
+            <div class="illustration-text">
+                <h2>Smart Calculator for Smart People</h2>
+                <p>Join thousands of users who make calculations easier with Calco</p>
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Advanced Scientific Calculator</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Cloud Sync Across Devices</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>History & Favorites</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-card">
+            <a href="index.html" class="auth-logo">
+                <h1>Calco</h1>
+            </a>
+            <h2>Create Account</h2>
+            <p class="auth-subtitle">Join Calco and start calculating smarter</p>
+            
+            <!-- Add a container for auth messages -->
+            <div class="auth-message-container"></div>
+
+            <form id="signupForm" class="auth-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" 
+                               id="name" 
+                               name="name"
+                               required 
+                               placeholder="Enter your full name"
+                               autocomplete="name">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" 
+                               id="email" 
+                               name="email"
+                               required 
+                               placeholder="Enter your email"
+                               autocomplete="email"
+                               list="emailList">
+                    </div>
+                    <datalist id="emailList">
+                        <!-- Previously used emails will appear here -->
+                    </datalist>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" 
+                               id="password" 
+                               required 
+                               placeholder="Create a password"
+                               autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" 
+                               id="confirmPassword" 
+                               required 
+                               placeholder="Confirm your password"
+                               autocomplete="new-password">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="terms">
+                        <input type="checkbox" id="terms" required>
+                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                    </div>
+                </div>
+
+                <button type="submit" id="signupButton" class="auth-button">Create Account</button>
+
+                <div class="social-auth">
+                    <p>Or sign up with</p>
+                    <div class="social-buttons">
+                        <button type="button" id="googleSignUp" class="social-button">
+                            <img src="https://www.google.com/favicon.ico" alt="Google">
+                            Google
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <p class="auth-footer">
+                Already have an account? <a href="login.html">Sign In</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Supabase JS Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <!-- Calculator App Scripts -->
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Add loading state handling
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            const signupButton = document.getElementById('signupButton');
+            signupButton.innerHTML = '<span class="loading-spinner"></span>Creating Account...';
+            signupButton.disabled = true;
+
+            // The form submission will be handled by handleSignup in auth.js
+        });
+    </script>
+</body>
+</html> 

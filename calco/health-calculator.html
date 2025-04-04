@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Calculators - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .health-page {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+        
+        .health-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .health-nav a {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--surface-color);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .health-nav a:hover, .health-nav a.active {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .health-calculator {
+            background-color: var(--surface-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .input-with-unit {
+            display: flex;
+        }
+        
+        .input-with-unit input {
+            flex: 1;
+            border-radius: 5px 0 0 5px;
+            border-right: none;
+        }
+        
+        .input-with-unit select {
+            width: 80px;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .calculate-btn {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .calculate-btn:hover {
+            background-color: var(--primary-hover);
+        }
+        
+        .result-box {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background-color: var(--background-color);
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .result-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .result-category {
+            color: var(--text-color-secondary);
+        }
+        
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .zone {
+            margin-bottom: 0.8rem;
+        }
+        
+        .zone-label {
+            font-weight: 500;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Calco</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="scientific-calculator.html">Scientific Calculator</a>
+            <a href="unit-converter.html">Unit Converter</a>
+            <a href="formula-library.html">Formula Library</a>
+            <a href="health-calculator.html" class="active">Health Calculators</a>
+            <a href="login.html">Sign In</a>
+            <a href="signup.html" class="cta-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="health-page">
+        <h1>Health Calculators</h1>
+        
+        <!-- Health Calculator Navigation -->
+        <div class="health-nav">
+            <a href="#bmi" id="bmi-nav" class="active">
+                <i class="fas fa-weight"></i> BMI Calculator
+            </a>
+            <a href="#calorie" id="calorie-nav">
+                <i class="fas fa-utensils"></i> Calorie Calculator
+            </a>
+            <a href="#heart-rate" id="heart-rate-nav">
+                <i class="fas fa-heartbeat"></i> Heart Rate Calculator
+            </a>
+        </div>
+        
+        <!-- BMI Calculator -->
+        <div class="calculator-section" id="bmi">
+            <h2>BMI Calculator</h2>
+            <div class="health-calculator">
+                <div class="input-group">
+                    <label for="weight">Weight</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="weight" placeholder="Enter weight">
+                        <select id="weight-unit">
+                            <option value="kg">kg</option>
+                            <option value="lbs">lbs</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="height">Height</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="height" placeholder="Enter height">
+                        <select id="height-unit">
+                            <option value="cm">cm</option>
+                            <option value="m">m</option>
+                            <option value="ft">ft</option>
+                        </select>
+                    </div>
+                </div>
+                <button onclick="calculateBMI()" class="calculate-btn">Calculate BMI</button>
+                <div id="bmi-result" class="result-box">
+                    <div class="result-value">--</div>
+                    <div class="result-category">Your BMI Category</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calorie Calculator -->
+        <div class="calculator-section" id="calorie">
+            <h2>Calorie Calculator</h2>
+            <div class="health-calculator">
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" placeholder="Enter age">
+                </div>
+                <div class="input-group">
+                    <label>Gender</label>
+                    <div class="radio-group">
+                        <input type="radio" id="male" name="gender" value="male" checked>
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" name="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="calorie-weight">Weight</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="calorie-weight" placeholder="Enter weight">
+                        <select id="calorie-weight-unit">
+                            <option value="kg">kg</option>
+                            <option value="lbs">lbs</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="calorie-height">Height</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="calorie-height" placeholder="Enter height">
+                        <select id="calorie-height-unit">
+                            <option value="cm">cm</option>
+                            <option value="m">m</option>
+                            <option value="ft">ft</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="activity">Activity Level</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                        <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                        <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                        <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                    </select>
+                </div>
+                <button onclick="calculateCaloriesNew()" class="calculate-btn">Calculate Daily Calories</button>
+                <div id="calorie-result" class="result-box">
+                    <div class="result-value">--</div>
+                    <div class="result-category">Daily Calorie Needs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fitness Calculator -->
+        <div class="calculator-section" id="heart-rate">
+            <h2>Target Heart Rate Calculator</h2>
+            <div class="health-calculator">
+                <div class="input-group">
+                    <label for="fitness-age">Age</label>
+                    <input type="number" id="fitness-age" placeholder="Enter age">
+                </div>
+                <div class="input-group">
+                    <label for="resting-heart-rate">Resting Heart Rate</label>
+                    <input type="number" id="resting-heart-rate" placeholder="Enter resting heart rate">
+                </div>
+                <button onclick="calculateHeartRate()" class="calculate-btn">Calculate Target Heart Rate</button>
+                <div id="heart-rate-result" class="result-box">
+                    <div class="result-zones">
+                        <div class="zone">
+                            <span class="zone-label">Moderate Intensity (64-76%):</span>
+                            <span class="zone-value">-- to -- bpm</span>
+                        </div>
+                        <div class="zone">
+                            <span class="zone-label">Vigorous Intensity (77-93%):</span>
+                            <span class="zone-value">-- to -- bpm</span>
+                        </div>
+                        <div class="zone">
+                            <span class="zone-label">Maximum Heart Rate:</span>
+                            <span class="zone-value">-- bpm</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Handle hash navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.calculator-section');
+            const navLinks = document.querySelectorAll('.health-nav a');
+            
+            // Set active section based on hash
+            function setActiveSection() {
+                const hash = window.location.hash || '#bmi';
+                
+                // Update navigation
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+                
+                // Show active section
+                sections.forEach(section => {
+                    if (section.id === hash.substring(1)) {
+                        section.style.display = 'block';
+                    } else {
+                        section.style.display = 'none';
+                    }
+                });
+            }
+            
+            // Initial setup
+            setActiveSection();
+            
+            // Update on hash change
+            window.addEventListener('hashchange', setActiveSection);
+            
+            // Copy values between BMI and Calorie calculators
+            const weightInput = document.getElementById('weight');
+            const heightInput = document.getElementById('height');
+            const weightUnitSelect = document.getElementById('weight-unit');
+            const heightUnitSelect = document.getElementById('height-unit');
+            
+            const calorieWeightInput = document.getElementById('calorie-weight');
+            const calorieHeightInput = document.getElementById('calorie-height');
+            const calorieWeightUnitSelect = document.getElementById('calorie-weight-unit');
+            const calorieHeightUnitSelect = document.getElementById('calorie-height-unit');
+            
+            // When BMI values change, update Calorie calculator
+            function syncBMItoCalorie() {
+                calorieWeightInput.value = weightInput.value;
+                calorieHeightInput.value = heightInput.value;
+                calorieWeightUnitSelect.value = weightUnitSelect.value;
+                calorieHeightUnitSelect.value = heightUnitSelect.value;
+            }
+            
+            // When Calorie values change, update BMI calculator
+            function syncCalorietoBMI() {
+                weightInput.value = calorieWeightInput.value;
+                heightInput.value = calorieHeightInput.value;
+                weightUnitSelect.value = calorieWeightUnitSelect.value;
+                heightUnitSelect.value = calorieHeightUnitSelect.value;
+            }
+            
+            // Add event listeners
+            weightInput.addEventListener('input', syncBMItoCalorie);
+            heightInput.addEventListener('input', syncBMItoCalorie);
+            weightUnitSelect.addEventListener('change', syncBMItoCalorie);
+            heightUnitSelect.addEventListener('change', syncBMItoCalorie);
+            
+            calorieWeightInput.addEventListener('input', syncCalorietoBMI);
+            calorieHeightInput.addEventListener('input', syncCalorietoBMI);
+            calorieWeightUnitSelect.addEventListener('change', syncCalorietoBMI);
+            calorieHeightUnitSelect.addEventListener('change', syncCalorietoBMI);
+            
+            // Debug logging
+            console.log('Page loaded - Health Calculator');
+            console.log('BMI Weight Input: ', document.getElementById('weight'));
+            console.log('BMI Height Input: ', document.getElementById('height'));
+            console.log('BMI Result: ', document.getElementById('bmi-result'));
+        });
+
+        // New calorie calculator function that uses its own inputs instead of BMI inputs
+        function calculateCaloriesNew() {
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const weight = parseFloat(document.getElementById('calorie-weight').value);
+            const height = parseFloat(document.getElementById('calorie-height').value);
+            const weightUnit = document.getElementById('calorie-weight-unit').value;
+            const heightUnit = document.getElementById('calorie-height-unit').value;
+            const activity = parseFloat(document.getElementById('activity').value);
+
+            if (isNaN(age) || isNaN(weight) || isNaN(height) || isNaN(activity)) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Convert measurements if needed
+            const weightKg = weightUnit === 'lbs' ? weight * 0.453592 : weight;
+            let heightCm = height;
+            if (heightUnit === 'm') {
+                heightCm = height * 100;
+            } else if (heightUnit === 'ft') {
+                heightCm = height * 30.48;
+            } else if (heightUnit === 'cm') {
+                heightCm = height;
+            }
+
+            // Calculate BMR using Mifflin-St Jeor Equation
+            let bmr;
+            if (gender === 'male') {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5;
+            } else {
+                bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+            }
+
+            // Calculate total daily calories
+            const calories = Math.round(bmr * activity);
+            
+            const resultValue = document.querySelector('#calorie-result .result-value');
+            resultValue.textContent = calories;
+
+            // Add weight goals
+            const weightLoss = Math.round(calories - 500);
+            const weightGain = Math.round(calories + 500);
+            
+            document.querySelector('#calorie-result .result-category').innerHTML = `
+                <div>Maintain weight: ${calories} calories/day</div>
+                <div>Weight loss: ${weightLoss} calories/day</div>
+                <div>Weight gain: ${weightGain} calories/day</div>
+            `;
+        }
+    </script>
+    <script src="health-calculator.js"></script>
+</body>
+</html> 

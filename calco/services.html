@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Services - Calco</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="dark-theme.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <a href="index.html" class="logo">Calco</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html" class="active">Services</a>
+            <a href="login.html">Sign In</a>
+            <a href="signup.html" class="cta-button">Sign Up</a>
+        </div>
+    </nav>
+
+    <div class="services-page">
+        <h1>Calco Calculator Suite</h1>
+        <p class="services-intro">Choose from our comprehensive collection of powerful calculators</p>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs">
+            <button class="tab-btn active" data-category="math">
+                <i class="fas fa-square-root-alt"></i> Mathematics
+            </button>
+            <button class="tab-btn" data-category="finance">
+                <i class="fas fa-chart-line"></i> Finance
+            </button>
+            <button class="tab-btn" data-category="science">
+                <i class="fas fa-flask"></i> Science
+            </button>
+            <button class="tab-btn" data-category="health">
+                <i class="fas fa-heartbeat"></i> Health
+            </button>
+            <button class="tab-btn" data-category="conversion">
+                <i class="fas fa-exchange-alt"></i> Conversion
+            </button>
+            <button class="tab-btn" data-category="reference">
+                <i class="fas fa-book"></i> Reference
+            </button>
+        </div>
+
+        <!-- Calculators Container -->
+        <div class="calculators-container">
+            <!-- Mathematics Calculators -->
+            <div class="calculator-category active" id="math-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-calculator"></i>
+                        <h3>Scientific Calculator</h3>
+                    </div>
+                    <p>Advanced scientific calculator with trigonometric, logarithmic, and exponential functions.</p>
+                    <a href="scientific-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-superscript"></i>
+                        <h3>Equation Solver</h3>
+                    </div>
+                    <p>Solve linear, quadratic, and polynomial equations with step-by-step solutions.</p>
+                    <a href="equation-solver.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-table"></i>
+                        <h3>Matrix Calculator</h3>
+                    </div>
+                    <p>Perform matrix operations including addition, multiplication, and finding determinants.</p>
+                    <a href="matrix-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-chart-area"></i>
+                        <h3>Statistical Calculator</h3>
+                    </div>
+                    <p>Calculate mean, median, mode, standard deviation, and more from your data.</p>
+                    <a href="statistical-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+            </div>
+
+            <!-- Finance Calculators -->
+            <div class="calculator-category" id="finance-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-home"></i>
+                        <h3>Mortgage Calculator</h3>
+                    </div>
+                    <p>Calculate monthly payments, interest, and amortization schedules for home loans.</p>
+                    <a href="mortgage-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-piggy-bank"></i>
+                        <h3>Investment Calculator</h3>
+                    </div>
+                    <p>Calculate investment growth, returns, and compound interest over time.</p>
+                    <a href="investment-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-credit-card"></i>
+                        <h3>Loan Calculator</h3>
+                    </div>
+                    <p>Calculate loan payments, interest costs, and payoff schedules for any loan type.</p>
+                    <a href="loan-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-percentage"></i>
+                        <h3>Tax Calculator</h3>
+                    </div>
+                    <p>Estimate income tax, sales tax, and other tax-related calculations.</p>
+                    <a href="tax-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+            </div>
+
+            <!-- Science Calculators -->
+            <div class="calculator-category" id="science-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-atom"></i>
+                        <h3>Physics Calculator</h3>
+                    </div>
+                    <p>Calculate velocity, force, energy, and other physics-related quantities.</p>
+                    <a href="physics-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-flask"></i>
+                        <h3>Chemistry Calculator</h3>
+                    </div>
+                    <p>Calculate molecular weight, solution concentration, and chemical equations.</p>
+                    <a href="chemistry-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <h3>Engineering Calculator</h3>
+                    </div>
+                    <p>Specialized calculations for various engineering disciplines.</p>
+                    <a href="engineering-calculator.html" class="use-btn">Use Calculator</a>
+                </div>
+            </div>
+
+            <!-- Health Calculators -->
+            <div class="calculator-category" id="health-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-weight"></i>
+                        <h3>BMI Calculator</h3>
+                    </div>
+                    <p>Calculate Body Mass Index based on height and weight with health recommendations.</p>
+                    <a href="health-calculator.html#bmi" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Calorie Calculator</h3>
+                    </div>
+                    <p>Calculate daily calorie needs based on age, gender, weight, and activity level.</p>
+                    <a href="health-calculator.html#calorie" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Heart Rate Calculator</h3>
+                    </div>
+                    <p>Calculate target heart rate zones for different fitness levels and activities.</p>
+                    <a href="health-calculator.html#heart-rate" class="use-btn">Use Calculator</a>
+                </div>
+            </div>
+
+            <!-- Conversion Calculators -->
+            <div class="calculator-category" id="conversion-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-ruler-combined"></i>
+                        <h3>Length & Distance</h3>
+                    </div>
+                    <p>Convert between meters, feet, miles, kilometers, and more.</p>
+                    <a href="conversion-calculator.html#length" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-balance-scale"></i>
+                        <h3>Weight & Mass</h3>
+                    </div>
+                    <p>Convert between kilograms, pounds, ounces, and more.</p>
+                    <a href="conversion-calculator.html#mass" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-thermometer-half"></i>
+                        <h3>Temperature</h3>
+                    </div>
+                    <p>Convert between Celsius, Fahrenheit, and Kelvin.</p>
+                    <a href="conversion-calculator.html#temperature" class="use-btn">Use Calculator</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-cube"></i>
+                        <h3>Volume & Area</h3>
+                    </div>
+                    <p>Convert between square/cubic units and different volume measurements.</p>
+                    <a href="conversion-calculator.html#volume" class="use-btn">Use Calculator</a>
+                </div>
+            </div>
+
+            <!-- Reference Calculators -->
+            <div class="calculator-category" id="reference-calculators">
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-book-open"></i>
+                        <h3>Formula Library</h3>
+                    </div>
+                    <p>Comprehensive collection of mathematical, scientific, and financial formulas.</p>
+                    <a href="formula-library.html" class="use-btn">View Library</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-table"></i>
+                        <h3>Constants Reference</h3>
+                    </div>
+                    <p>Mathematical and scientific constants with precise values.</p>
+                    <a href="constants-reference.html" class="use-btn">View Reference</a>
+                </div>
+                <div class="calculator-card">
+                    <div class="calculator-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Learning Resources</h3>
+                    </div>
+                    <p>Educational resources and guides for using calculators effectively.</p>
+                    <a href="learning-resources.html" class="use-btn">View Resources</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2023 Calco - Advanced Calculator Tools</p>
+    </footer>
+
+    <script>
+        // Tab navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.tab-btn');
+            const calculatorCategories = document.querySelectorAll('.calculator-category');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Hide all calculator categories
+                    calculatorCategories.forEach(category => {
+                        category.classList.remove('active');
+                    });
+                    
+                    // Show the corresponding calculator category
+                    const categoryId = `${tab.dataset.category}-calculators`;
+                    document.getElementById(categoryId).classList.add('active');
+                });
+            });
+            
+            // Handle hash links for health calculator
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (hash === 'bmi' || hash === 'calorie' || hash === 'heart-rate') {
+                    // Activate health tab
+                    tabs.forEach(t => t.classList.remove('active'));
+                    document.querySelector('[data-category="health"]').classList.add('active');
+                    
+                    // Show health calculators
+                    calculatorCategories.forEach(category => {
+                        category.classList.remove('active');
+                    });
+                    document.getElementById('health-calculators').classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html> 

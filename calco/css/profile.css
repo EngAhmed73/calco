@@ -1,0 +1,103 @@
+/* Add styling for the user activity section */
+.user-activity {
+    margin-top: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+.activity-stats {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 150px;
+    background: linear-gradient(135deg, var(--primary-color-light), var(--primary-color));
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.visits-table-container {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.visits-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.visits-table th, 
+.visits-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+}
+
+.visits-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+.visits-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.visits-table tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.visits-table tbody tr:hover {
+    background-color: rgba(var(--primary-color-rgb), 0.1);
+}
+
+.loading-message {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-color-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .activity-stats {
+        flex-direction: column;
+    }
+    
+    .stat-card {
+        width: 100%;
+    }
+    
+    .visits-table th, 
+    .visits-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+} 
